@@ -1,0 +1,22 @@
+@use 'abstracts/colors' as c;
+
+body{
+    height: 80vh;
+   
+}
+.welcome{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 500px;
+    height: auto;
+    background-color: c.$primary;
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+
+    img{
+       width: 100%;
+       height: auto;
+    } 
+}
