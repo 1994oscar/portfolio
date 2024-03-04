@@ -21,4 +21,10 @@ const themeWhite = {
     primary: primary,
 }
 
-export {themeBlack, themeWhite}; 
+const colors = {
+    black: black,
+    white: white,
+    primary: primary,
+}
+
+export {themeBlack, themeWhite, colors}; 

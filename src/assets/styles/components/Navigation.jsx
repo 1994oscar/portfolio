@@ -7,7 +7,7 @@ const Navigation = styled.nav`
     width: 100%;
     padding: 39px 0;
     background-color: transparent; 
-    color: ${themeBlack.white}; 
+    color: ${props => props.colors.white}; 
 `;
 
 const Logo = styled.div`

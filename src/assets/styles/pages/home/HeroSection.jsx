@@ -7,7 +7,7 @@ const HeroSection = styled.div`
     width: 100%;
     z-index: 0;
     padding-top: 19.8rem;
-    background: ${themeBlack.black};
+    background: ${props => props.colors.black};
     padding-bottom: 20.9rem;
     //border-bottom: solid 1px ${themeBlack.white};
 `;
@@ -15,7 +15,7 @@ const HeroSection = styled.div`
 const HeroContent = styled.div`
     height: 100%;
     width: 100%;
-    color: ${themeBlack.white};
+    color: ${props => props.colors.white};
 
     h1{
         max-width: 70.9rem;
