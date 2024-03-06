@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeBlack } from "../../Colors";
+import colors from "../../Colors";
 
 const TextUnderline = styled.span`
     position: relative;
@@ -7,7 +7,7 @@ const TextUnderline = styled.span`
         content: "";
         height: 6px;
         width: 100%;
-        background: ${themeBlack.primary};
+        background: ${colors.primary};
         position: absolute;
         bottom: 0;
         right: 0;

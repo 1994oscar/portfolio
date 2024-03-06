@@ -2,25 +2,21 @@ import Container from "../assets/styles/components/Container";
 import Button from "../assets/styles/components/Generics/Button";
 import TextUnderline from "../assets/styles/components/generics/TextUnderline";
 import {HeroSection,HeroContent, HeroImage, Image} from "../assets/styles/pages/home/HeroSection";
-import { useThemeColor } from "../hooks/useThemeColor";
+import { useGetThemeSettings } from "../hooks/useGetThemeSettings";
 
+const Hero = () => {   
+    const {themeSettings} = useGetThemeSettings();
 
-const Hero = () => {
-    const {changeColorTheme, theme} = useThemeColor();
-    const {darkMode} = theme;
-    
-    const colors ={
-        white: theme.whiteColor,
-        black: theme.blackColor
+    const profileImages = {
+        black: '../images/profile-picture.jpg',
+        white: '../images/profile-picture-white.jpg'
     }
-
-    //console.log(colors.white)
 
     return ( 
         <>
-            <HeroSection colors = {colors}>
+            <HeroSection theme = {themeSettings}>
                 <Container>
-                    <HeroContent colors = {colors}>
+                    <HeroContent theme = {themeSettings}>
                         <h1>
                             <span>Nice to meet you! </span>
                             <span>I’m <TextUnderline>Adam Keyes.</TextUnderline></span>
@@ -31,10 +27,10 @@ const Hero = () => {
                     </HeroContent>
                     
                     <HeroImage>
-                        <Image><img src="/images/profile-picture.jpg" alt="" /></Image>  
+                        <Image theme = {themeSettings}><img src={themeSettings.lightMode ? profileImages.white : profileImages.black} alt="" /></Image>  
                     </HeroImage>
 
-                    <Button>Contact Me</Button>
+                    <Button theme = {themeSettings}>Contact Me</Button>
                 </Container>
             </HeroSection>   
         </>

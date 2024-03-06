@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import { themeBlack } from "../../Colors";
+import colors from "../../Colors";
 
 export const Icon = styled.i`
    svg{
-    fill: ${props => props.color};
+    transition: all .5s ease;
+    fill: ${props => props.theme.lightMode ? colors.black : colors.white};
    }
-    color: ${props => props.color};
+    color: ${props => props.theme.lightMode ? colors.black : colors.white};
+
+    &:hover{
+        cursor: pointer;
+    }
 `; 

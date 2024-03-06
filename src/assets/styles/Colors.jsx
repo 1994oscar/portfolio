@@ -9,22 +9,14 @@ const success = '#4EE1A0';
 const error = '#FF6F5B';
 
 
-const themeBlack = {
-    black: black,
-    white: white,
-    primary: primary,
-}
-
-const themeWhite = {
-    black: black,
-    white:  white,
-    primary: primary,
-}
-
 const colors = {
-    black: black,
-    white: white,
-    primary: primary,
+    black,
+    white,
+    primary,
+    dkGray,
+    gray,
+    success,
+    error,
 }
 
-export {themeBlack, themeWhite, colors}; 
+export default colors; 

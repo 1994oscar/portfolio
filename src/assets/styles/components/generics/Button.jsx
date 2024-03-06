@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeBlack } from "../../Colors";
+import colors from "../../Colors";
 
 const Button = styled.a`
     transition: all .2s ease-in;
@@ -8,15 +8,17 @@ const Button = styled.a`
     font-style: normal;
     line-height: 26px;
     letter-spacing: 2.286px;
-    color: ${themeBlack.white};
+    color: ${props => props.theme.lightMode ? colors.black : colors.white};
     padding-bottom: 1rem;
 
-    border-bottom: solid ${themeBlack.primary} 2px;
+    border-bottom: solid ${colors.primary} 2px;
 
     &:hover{
         cursor: pointer;
-        color: ${themeBlack.primary};
+        color: ${colors.primary};
     }
 `;
+
+
 
 export default Button;

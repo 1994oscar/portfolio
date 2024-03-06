@@ -1,22 +1,29 @@
-import { themeBlack } from "../../Colors";
+import colors from "../../Colors";
 import styled from "styled-components";
 
+const images ={
+    oval: 'oval.svg',
+    ovalBlack: 'oval-black.svg',
+    oval2: 'oval-2.svg',
+    oval2Black: 'oval-2-black.svg'
+}
+
 const HeroSection = styled.div`
-    position: absolute;
-    top:0;
+    transition: all .5s ease;
+    position: relative;
     width: 100%;
     z-index: 0;
     padding-top: 19.8rem;
-    background: ${props => props.colors.black};
+    background: ${props => props.theme.lightMode ? colors.white : colors.black};
     padding-bottom: 20.9rem;
-    //border-bottom: solid 1px ${themeBlack.white};
 `;
 
 const HeroContent = styled.div`
+    transition: all .5s ease;
     height: 100%;
     width: 100%;
-    color: ${props => props.colors.white};
-
+    color: ${props => props.theme.lightMode ? colors.black : colors.white};
+   
     h1{
         max-width: 70.9rem;
     }
@@ -26,6 +33,21 @@ const HeroContent = styled.div`
         max-width: 445px;
         margin-bottom: 6.6rem;
     }
+
+    &::before{
+        content: "";
+        background-image: url(../public/images/${props => props.theme.lightMode ? images.oval2Black : images.oval2});
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 160px;
+        width: 530px;
+        position: absolute;
+        z-index: -1;
+        top: 10.8rem;
+        left: -10.4rem;
+    }
+
 `;
 
 const HeroImage = styled.div`
@@ -49,7 +71,7 @@ const Image = styled.div`
         width: 129px;
         height: 129px;
         position: absolute;
-        background-image: url('../public/images/oval.svg');
+        background-image: url(../public/images/${props => props.theme.lightMode ? images.ovalBlack : images.oval});
         bottom: 10rem;
         left: 0;
         transform: translate(-50%, 0);

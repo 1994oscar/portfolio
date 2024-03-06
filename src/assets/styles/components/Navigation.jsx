@@ -1,13 +1,16 @@
-import { themeBlack } from "../Colors";
 import styled from "styled-components";
+import colors from "../Colors";
 
 const Navigation = styled.nav`
+    transition: all .5s ease;
     position: relative;
+    position: absolute;
+    top: 0;
     z-index: 1;
     width: 100%;
     padding: 39px 0;
     background-color: transparent; 
-    color: ${props => props.colors.white}; 
+    color: ${props => props.theme.lightMode ? colors.black : colors.white}; 
 `;
 
 const Logo = styled.div`
@@ -45,7 +48,7 @@ const SocialsBox = styled.div`
     svg{
         width: 24px;
         height: 24px;
-        fill: ${themeBlack.white};
+        fill: ${colors.white};
     }
 `;
 
