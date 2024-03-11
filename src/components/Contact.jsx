@@ -22,7 +22,7 @@ const Contact = () => {
         errors: {
             name: '',
             email: '',
-            message: ''
+            message:''
         }
     });
 
@@ -41,19 +41,20 @@ const Contact = () => {
        const errors = {};
 
        for(const input in form){
-            if(form[input] === ''){
+            if(!form[input]){
                 errors[input] = {
                     message: `The input ${input.toUpperCase()} can not be empty.`,
-                    status: false
+                    status: 'error'
                 }
             } else{
                 errors[input] = {
-                    status: true
+                    status: 'success'
                 }
             }
         }
 
         setValidation({
+            ...validation,
             errors
         });
     }
@@ -71,6 +72,8 @@ const Contact = () => {
        
     }
   
+    const {name, email, message} = validation.errors;
+
     return ( 
     <ContactSection $theme={themeSettings}>
         <Container>
@@ -87,15 +90,37 @@ const Contact = () => {
                     <ContactBoxRight $theme={themeSettings}>
                         <ContactForm $theme={themeSettings} $w='445px'>
                             <form onSubmit={handleFormSubmit}>
-                                <Input $theme={themeSettings} $error={validation.errors.name?.status} type="text" name="name" placeholder="Name" onChange={handleInputChange}  value={form.name}/>
-                                <Label htmlFor="name">{validation.errors?.name?.message}</Label>
+                                <Input $theme={themeSettings} 
+                                        $error={name?.status} 
+                                        type="text" 
+                                        name="name" 
+                                        placeholder="Name" 
+                                        onChange={handleInputChange}  
+                                        value={form.name}/>
+                                <Label htmlFor="name">{name?.message}</Label>
                                 
-                                <Input $theme={themeSettings} type="email" name="email" placeholder="Email"  onChange={handleInputChange}  value={form.email}/>
-                                <Label htmlFor="name">{validation.errors?.email?.message}</Label>
+                                <Input $theme={themeSettings} 
+                                        $error={email?.status} 
+                                        type="email" 
+                                        name="email" 
+                                        placeholder="Email"  
+                                        onChange={handleInputChange}  
+                                        value={form.email}/>
+                                <Label htmlFor="name">{email?.message}</Label>
                                 
-                                <TextArea as='textarea' $theme={themeSettings} name="message" placeholder="Message"        onChange={handleInputChange}  value={form.message}/>
-                                <Label htmlFor="name">{validation.errors?.message?.message}</Label>
-                                <Button role="submit" $theme={themeSettings}  $align='right' $w='160px'>Send Message</Button>
+                                <TextArea as='textarea' 
+                                            $theme={themeSettings} 
+                                            $error={message?.status} 
+                                            name="message" 
+                                            placeholder="Message" 
+                                            onChange={handleInputChange}  
+                                            value={form.message}/>
+                                <Label htmlFor="name">{message?.message}</Label>
+                                
+                                <Button role="submit" 
+                                        $theme={themeSettings}  
+                                        $align='right' 
+                                        $w='160px'>Send Message</Button>
                             </form>
                         </ContactForm>   
                     </ContactBoxRight>

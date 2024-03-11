@@ -7,11 +7,13 @@ const defaultProps = {
 }
 
 const ContactForm = styled.div`
-    width: ${props => props.$w || defaultProps.w}  ;
-    input, textarea{ 
+    width: ${props => props.$w || defaultProps.w};
+`;
+
+const Input = styled.input`
+
         &::placeholder{
             color: rgba(${props => props.$theme.lightMode ? '0, 0, 0' : '255, 255, 255'}, .5);
-
             font-family: "Space Grotesk";
             font-size: 16px;
             font-style: normal;
@@ -19,31 +21,8 @@ const ContactForm = styled.div`
             line-height: 26px; /* 162.5% */
             letter-spacing: -0.222px;
             text-transform: uppercase;
-        }
-    }
+        } 
 
-    /* input, textarea{
-        height: 42px;
-        width: 100%;
-        margin-bottom: 32px;
-        background-color: transparent;
-        border: none;
-        border-bottom: solid 1px ${props => props.$theme.lightMode ? colors.black : colors.white};
-        color: rgba(${props => props.$theme.lightMode ? '0, 0, 0' : '255, 255, 255'}, .5);
-
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 26px; /* 162.5% */
-        /* letter-spacing: -0.222px;
-    } */
-
-    /* textarea{
-        height: 10.7rem;
-    }  */
-`;
-
-const Input = styled.input`
         height: 42px;
         width: 100%;
         margin-top: 32px;
@@ -58,7 +37,8 @@ const Input = styled.input`
         line-height: 26px; /* 162.5% */
         letter-spacing: -0.222px;
 
-        border-bottom: solid 1px ${props => props?.$error ? colors.success : colors.error };
+        border-bottom: solid 1px ${props => props.$error === 'success' ? (colors.success) : (props.$error === 'error' ? colors.error  :
+                                             props.$theme.lightMode ? colors.dkGray : colors.white) };
 `;
 
 const TextArea = styled(Input)`
