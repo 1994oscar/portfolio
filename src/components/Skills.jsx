@@ -16,13 +16,13 @@ const Skills = () => {
     ];
 
     return (
-        <SkillsSection theme = {themeSettings}>
+        <SkillsSection $theme = {themeSettings}>
             <Container>
-                <SkillsBox theme = {themeSettings}>
+                <SkillsBox $theme = {themeSettings}>
                     {
                         skills.map((skill, index) => {   
                             return (
-                                <Skill key={index} theme = {themeSettings}>                          
+                                <Skill key={index} $theme = {themeSettings}>                          
                                     <h2>{skill.tec}</h2>
                                     <p>{skill.years} Years Experience</p>
                                 </Skill>

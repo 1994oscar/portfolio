@@ -13,29 +13,29 @@ const Header = () => {
 
     return (
         <>   
-            <Navigation theme = {themeSettings} >
+            <Navigation $theme = {themeSettings} >
                     <Container>
                         <NavigationBox>
                            <Logo><span>adamkeyes</span></Logo>
                            <SocialsBox>
                                 <a href="#!">
-                                    <Icon theme = {themeSettings}>{icons.gitHub}</Icon>
+                                    <Icon $theme = {themeSettings}>{icons.gitHub}</Icon>
                                 </a>
 
                                 <a href="#!">
-                                    <Icon theme = {themeSettings}>{icons.frontEndMentor}</Icon>
+                                    <Icon $theme = {themeSettings}>{icons.frontEndMentor}</Icon>
                                 </a>
 
                                 <a href="#!">
-                                    <Icon theme = {themeSettings}>{icons.linkedIn}</Icon>
+                                    <Icon $theme = {themeSettings}>{icons.linkedIn}</Icon>
                                 </a>
 
                                 <a href="#!">
-                                    <Icon theme = {themeSettings}>{icons.twitter}</Icon>
+                                    <Icon $theme = {themeSettings}>{icons.twitter}</Icon>
                                 </a>
 
                                 <a role="button" onClick={() => changeThemeMode()}>   
-                                    <Icon theme = {themeSettings}>{themeSettings.lightMode ? icons.moon : icons.sun}</Icon>
+                                    <Icon $theme = {themeSettings}>{themeSettings.lightMode ? icons.moon : icons.sun}</Icon>
                                 </a>
                            </SocialsBox>
                         </NavigationBox>                 

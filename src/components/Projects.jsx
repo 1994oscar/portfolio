@@ -1,5 +1,5 @@
 import Container from "../assets/styles/components/Container";
-import Button from "../assets/styles/components/Generics/Button";
+import { Anchor } from "../assets/styles/components/Generics/Button";
 import { ProjectHeader, ProjectItem, ProjectsBox, ProjectsSection } from "../assets/styles/pages/home/ProjectsSection";
 import { useGetThemeSettings } from "../hooks/useGetThemeSettings";
 
@@ -35,18 +35,18 @@ export const Projects = () => {
     ];
 
     return (
-        <ProjectsSection theme={themeSettings}>
+        <ProjectsSection $theme={themeSettings}>
             <Container>
-                <ProjectHeader theme={themeSettings}>
+                <ProjectHeader $theme={themeSettings}>
                     <h1>Projects</h1>
 
-                    <Button theme={themeSettings}>Contact Me</Button>
+                    <Anchor $theme={themeSettings}>Contact Me</Anchor>
                 </ProjectHeader>
                 <ProjectsBox>
                     {
                         projects.map((project, index) => {
                             return (
-                                <ProjectItem key={index} theme={themeSettings}>
+                                <ProjectItem key={index} $theme={themeSettings}>
                                     <img src={project.image} alt="" />
                                     <h3>{project.title}</h3>
 

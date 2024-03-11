@@ -10,11 +10,11 @@ const images ={
 const SkillsSection = styled.div`
     position: relative;
     transition: all .5s ease;
-    background-color: ${props => props.theme.lightMode ? colors.white : colors.black};
+    background-color: ${props => props.$theme.lightMode ? colors.white : colors.black};
    
     &::before{
         content: "";
-        background-image: url(../public/images/${props => props.theme.lightMode ? images.oval3Black : images.oval3});
+        background-image: url(../public/images/${props => props.$theme.lightMode ? images.oval3Black : images.oval3});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -37,7 +37,7 @@ const SkillsBox = styled.div`
 
    &:first-of-type{
         padding-top: 7.2rem;
-        border-top: 1px solid ${props => props.theme.lightMode ? colors.black : colors.white};
+        border-top: 1px solid ${props => props.$theme.lightMode ? colors.black : colors.white};
    }
 `;
 
@@ -45,11 +45,11 @@ const Skill = styled.div`
     width: 33%;
     margin-bottom: 5.5rem;
     h2{
-        color: ${props => props.theme.lightMode ? colors.black : colors.white};
+        color: ${props => props.$theme.lightMode ? colors.black : colors.white};
     }
 
     p{
-        color: ${props => props.theme.lightMode ? colors.black : colors.white};
+        color: ${props => props.$theme.lightMode ? colors.black : colors.white};
     }
 `;
 

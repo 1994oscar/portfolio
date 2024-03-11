@@ -19,4 +19,4 @@ const colors = {
     error,
 }
 
-export default colors; 
+export default colors;  

@@ -1,5 +1,5 @@
 import Container from "../assets/styles/components/Container";
-import Button from "../assets/styles/components/Generics/Button";
+import { Anchor } from "../assets/styles/components/Generics/Button";
 import TextUnderline from "../assets/styles/components/generics/TextUnderline";
 import {HeroSection,HeroContent, HeroImage, Image} from "../assets/styles/pages/home/HeroSection";
 import { useGetThemeSettings } from "../hooks/useGetThemeSettings";
@@ -14,9 +14,9 @@ const Hero = () => {
 
     return ( 
         <>
-            <HeroSection theme = {themeSettings}>
+            <HeroSection $theme = {themeSettings}>
                 <Container>
-                    <HeroContent theme = {themeSettings}>
+                    <HeroContent $theme = {themeSettings}>
                         <h1>
                             <span>Nice to meet you! </span>
                             <span>I’m <TextUnderline>Adam Keyes.</TextUnderline></span>
@@ -27,10 +27,10 @@ const Hero = () => {
                     </HeroContent>
                     
                     <HeroImage>
-                        <Image theme = {themeSettings}><img src={themeSettings.lightMode ? profileImages.white : profileImages.black} alt="" /></Image>  
+                        <Image $theme = {themeSettings}><img src={themeSettings.lightMode ? profileImages.white : profileImages.black} alt="" /></Image>  
                     </HeroImage>
 
-                    <Button theme = {themeSettings}>Contact Me</Button>
+                    <Anchor $theme = {themeSettings}>Contact Me</Anchor>
                 </Container>
             </HeroSection>   
         </>

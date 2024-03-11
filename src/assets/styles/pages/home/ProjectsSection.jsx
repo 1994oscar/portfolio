@@ -2,7 +2,8 @@ import styled from "styled-components";
 import colors from "../../Colors";
 
 const ProjectsSection = styled.div`
-    background-color: ${props => props.theme.lightMode ? colors.white : colors.black};
+    transition: all .5s ease;
+    background-color: ${props => props.$theme.lightMode ? colors.white : colors.black};
 `;
 
 const ProjectHeader = styled.div`
@@ -14,7 +15,7 @@ const ProjectHeader = styled.div`
     align-items: center;
 
     h1,h2{
-        color: ${props => props.theme.lightMode ? colors.black : colors.white};
+        color: ${props => props.$theme.lightMode ? colors.black : colors.white};
     }  
 `;
 const ProjectsBox = styled.div`
@@ -35,11 +36,11 @@ const ProjectItem = styled.div`
     h3{
         margin-top: 1.9rem;
         margin-bottom: .7rem;
-        color: ${props => props.theme.lightMode ? colors.black : colors.white};
+        color: ${props => props.$theme.lightMode ? colors.black : colors.white};
     }
 
     span{
-        color: ${props => props.theme.lightMode ? colors.black : colors.white};
+        color: ${props => props.$theme.lightMode ? colors.black : colors.white};
         margin-right: 1.8rem;
     }
 `;

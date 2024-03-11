@@ -3,14 +3,13 @@ import colors from "../Colors";
 
 const Navigation = styled.nav`
     transition: all .5s ease;
-    position: relative;
-    position: absolute;
+    position: ${props => props?.$position || 'absolute'};
     top: 0;
     z-index: 1;
     width: 100%;
-    padding: 39px 0;
-    background-color: transparent; 
-    color: ${props => props.theme.lightMode ? colors.black : colors.white}; 
+    padding: ${props => props.$footer ? '0 0' : '39px 0'};
+    background-color: ${props => props.$footer ? (props.$theme.lightMode ? colors.gray : colors.dkGray) : 'transparent'}; 
+    color: ${props => props.$theme.lightMode ? colors.black : colors.white}; 
 `;
 
 const Logo = styled.div`
@@ -37,18 +36,21 @@ const NavigationBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    border-top: solid 1px ${props => props.$border ? (props.$theme.lightMode ? colors.black : colors.white) : 'transparent'};
+    padding: ${props => props.$footer ? '47px 0 92px' : '0'};
 `;
 
 const SocialsBox = styled.div`
     
-    margin-right: 2.9rem;
+    margin-right: ${props => props.$footer ? 0 : '2.9rem'};
     display: flex;
     gap: 30px;
 
     svg{
         width: 24px;
         height: 24px;
-        fill: ${colors.white};
+        //fill: ${colors.white};
     }
 `;
 
