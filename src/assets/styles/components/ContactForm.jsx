@@ -37,8 +37,9 @@ const Input = styled.input`
         line-height: 26px; /* 162.5% */
         letter-spacing: -0.222px;
 
-        border-bottom: solid 1px ${props => props.$error === 'success' ? (colors.success) : (props.$error === 'error' ? colors.error  :
-                                             props.$theme.lightMode ? colors.dkGray : colors.white) };
+        border-bottom: solid 1px ${props => props.$error === 'success' ? (colors.success) : 
+                                                (props.$error === 'error' ? colors.error  :
+                                                props.$theme.lightMode ? colors.dkGray : colors.white) };
 `;
 
 const TextArea = styled(Input)`

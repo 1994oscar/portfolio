@@ -12,6 +12,8 @@ const Contact = () => {
 
     const {themeSettings} = useGetThemeSettings();
 
+    const [submitButton, setSubmitButton] = useState(false);
+
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -20,56 +22,130 @@ const Contact = () => {
 
     const [validation, setValidation] = useState({
         errors: {
-            name: '',
-            email: '',
-            message:''
+            name: {
+                message: '',
+                status: ''
+            },
+            email: {
+                message: '',
+                status: ''
+            },
+            message:{
+                message: '',
+                status: ''
+            }
         }
     });
 
+    /**
+     * Check the input where user types.
+     * Disabled the submit button if something wrong
+     */
     const handleInputChange = (e) => {
+        let errors = {...validation.errors};
         const {name, value} = e.target;
 
+        if(name === 'email'){
+            errors = emailValidation(name, value, errors);
+        }else{
+           errors = emptyValidation(name, value, errors);
+        }
+
+        const isSuccess = inputsStatusValidation(errors);
+
+        //Hooks
         setForm({
             ...form,
             [name]: value
         });
-        
-        isInputEmpty();
+
+        setValidation({
+            ...validation,
+            errors
+        });
+
+        setSubmitButton(isSuccess);
     } 
 
-    const isInputEmpty = () => {
-       const errors = {};
-
-       for(const input in form){
-            if(!form[input]){
-                errors[input] = {
-                    message: `The input ${input.toUpperCase()} can not be empty.`,
-                    status: 'error'
-                }
-            } else{
-                errors[input] = {
-                    status: 'success'
-                }
+    /**
+     * Check if an input is empty
+     * */
+    const emptyValidation = (inputName, inputValue, errors) => {
+        if(!inputValue){
+            errors[inputName] = {
+                message: `The input ${inputName.toUpperCase()} can not be empty.`,
+                status: 'error'
             }
+        }else{
+            errors[inputName] = {
+                message: ``,
+                status: 'success'
+            }
+        }
+
+        return errors;
+    }
+
+    /**
+     * Check the status validation for all inputs
+     * */
+    const inputsStatusValidation = (errors) => {
+        const status = Object.values(errors);
+        return status.find(input => input.status === 'error' && input.status !== '');
+    }
+
+    /**
+     * Validate is valid email
+     * */
+    const emailValidation = (inputName, inputValue, errors) => {
+
+        const emailRegexp =
+            /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+        if(inputValue && !emailRegexp.test(inputValue)){
+            errors[inputName] = {
+                message: 'The input text is not a valid email',
+                status: 'error'
+            }
+        }else if(inputValue && emailRegexp.test(inputValue)){
+            errors[inputName] = {
+                message: '',
+                status: 'success'
+            }
+        }else{
+           errors = emptyValidation(inputName, inputValue, errors);
+        }
+
+        return errors;
+    }
+
+    /**
+     * Check all inputs in general if are empty and validation statuses
+     * */
+    const checkEmptyStatusInputs = () => {
+        let errors = {...validation.errors};
+
+        for(const input in form){
+            errors = emptyValidation(input,form[input], errors);
         }
 
         setValidation({
             ...validation,
             errors
         });
-    }
 
-    const handleValidation = () => {
-        isInputEmpty();
-        console.log(validation)
+        const isSuccess = inputsStatusValidation(errors);
+        setSubmitButton(isSuccess);
+
+        return isSuccess;
     }
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        /**...Send the data */
-       
-        handleValidation();
-       
+
+        if(!checkEmptyStatusInputs()){
+           //Ready to submit
+        }
     }
   
     const {name, email, message} = validation.errors;
@@ -120,7 +196,8 @@ const Contact = () => {
                                 <Button role="submit" 
                                         $theme={themeSettings}  
                                         $align='right' 
-                                        $w='160px'>Send Message</Button>
+                                        $w='160px'
+                                        disabled = {submitButton}>Send Message</Button>
                             </form>
                         </ContactForm>   
                     </ContactBoxRight>

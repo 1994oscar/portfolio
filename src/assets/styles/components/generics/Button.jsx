@@ -60,6 +60,11 @@ const Button = styled.button`
                             props?.$ml || 0};
 
     margin-top: ${props => props?.$mt || 0};
+    
+    &:disabled{
+        color: ${colors.gray};
+        border-bottom-color: ${colors.gray};
+    }
 `;  
 
 
