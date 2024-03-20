@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../Colors";
+import {devices} from "../devices.jsx";
 
 const Navigation = styled.nav`
     transition: all .5s ease;
@@ -39,6 +40,11 @@ const NavigationBox = styled.div`
 
     border-top: solid 1px ${props => props.$border ? (props.$theme.lightMode ? colors.black : colors.white) : 'transparent'};
     padding: ${props => props.$footer ? '47px 0 92px' : '0'};
+    
+    @media ${devices.max.sm}{
+        flex-direction: column;
+        gap: 20px;
+    }
 `;
 
 const SocialsBox = styled.div`

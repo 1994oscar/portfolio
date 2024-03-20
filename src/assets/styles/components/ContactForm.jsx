@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../Colors";
+import {devices} from "../devices.jsx";
 
 
 const defaultProps = {
@@ -8,10 +9,15 @@ const defaultProps = {
 
 const ContactForm = styled.div`
     width: ${props => props.$w || defaultProps.w};
+    position: relative;
+    z-index: 3;
+    
+    @media ${devices.max.sm}{
+        width: 100%;
+    }
 `;
 
 const Input = styled.input`
-
         &::placeholder{
             color: rgba(${props => props.$theme.lightMode ? '0, 0, 0' : '255, 255, 255'}, .5);
             font-family: "Space Grotesk";
@@ -22,7 +28,11 @@ const Input = styled.input`
             letter-spacing: -0.222px;
             text-transform: uppercase;
         } 
-
+        &:focus-visible{
+            outline: none;
+            -moz-outline-color: unset;
+        }
+    
         height: 42px;
         width: 100%;
         margin-top: 32px;
@@ -47,7 +57,9 @@ const TextArea = styled(Input)`
 `;
 
 const Label = styled.label`
-    display: block;
+    transition: all .5s ease;
+    position: relative;
+    display: ${props => props.$show ? 'block' : 'none'};
     color: ${colors.error};
     font-size: 1.2rem;
     font-style: normal;
@@ -56,6 +68,19 @@ const Label = styled.label`
     letter-spacing: -0.167px;
     text-align: right;
     margin-top: .5rem;
+
+    &::before{
+        content: "";
+        width: 24px;
+        height: 24px;
+        background-image: url("/public/images/icons/error-icon.svg");
+        background-size: contain;
+        background-position: center;
+        z-index: 1;
+        position: absolute;
+        top: -50px;
+        right: 0;
+    }
 `;
 
 export {ContactForm, Input, TextArea, Label}

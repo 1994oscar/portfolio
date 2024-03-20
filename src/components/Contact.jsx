@@ -6,39 +6,39 @@ import { Row, Column } from "../assets/styles/components/Grid"
 import { ContactBox, ContactBoxRight, ContactSection } from "../assets/styles/pages/home/ContactSection"
 import { useGetThemeSettings } from "../hooks/useGetThemeSettings"
 
-
-
 const Contact = () => {
 
     const {themeSettings} = useGetThemeSettings();
 
     const [submitButton, setSubmitButton] = useState(false);
 
-    const [form, setForm] = useState({
+    const formInitialState = {
         name: '',
         email: '',
         message: ''
-    });
+    }
+    const [form, setForm] = useState(formInitialState);
 
-    const [validation, setValidation] = useState({
-        errors: {
-            name: {
-                message: '',
-                status: ''
-            },
-            email: {
-                message: '',
-                status: ''
-            },
-            message:{
-                message: '',
-                status: ''
-            }
-        }
-    });
+    const errorsInitialState = {
+           errors: {
+               name: {
+                   message: '',
+                   status: ''
+               },
+               email: {
+                   message: '',
+                   status: ''
+               },
+               message:{
+                   message: '',
+                   status: ''
+               }
+           }
+    }
+    const [validation, setValidation] = useState(errorsInitialState);
 
     /**
-     * Check the input where user types.
+     * Check the input when user types.
      * Disabled the submit button if something wrong
      */
     const handleInputChange = (e) => {
@@ -104,7 +104,7 @@ const Contact = () => {
 
         if(inputValue && !emailRegexp.test(inputValue)){
             errors[inputName] = {
-                message: 'The input text is not a valid email',
+                message: 'Sorry, invalid format here',
                 status: 'error'
             }
         }else if(inputValue && emailRegexp.test(inputValue)){
@@ -140,11 +140,18 @@ const Contact = () => {
         return isSuccess;
     }
 
+    const formReset = () => {
+            setForm(formInitialState);
+            setValidation(errorsInitialState);
+    }
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
         if(!checkEmptyStatusInputs()){
            //Ready to submit
+
+            formReset();
         }
     }
   
@@ -173,7 +180,7 @@ const Contact = () => {
                                         placeholder="Name" 
                                         onChange={handleInputChange}  
                                         value={form.name}/>
-                                <Label htmlFor="name">{name?.message}</Label>
+                                <Label $show={name?.message} htmlFor="name">{name?.message}</Label>
                                 
                                 <Input $theme={themeSettings} 
                                         $error={email?.status} 
@@ -182,7 +189,7 @@ const Contact = () => {
                                         placeholder="Email"  
                                         onChange={handleInputChange}  
                                         value={form.email}/>
-                                <Label htmlFor="name">{email?.message}</Label>
+                                <Label $show={email?.message} htmlFor="name">{email?.message}</Label>
                                 
                                 <TextArea as='textarea' 
                                             $theme={themeSettings} 
@@ -191,12 +198,13 @@ const Contact = () => {
                                             placeholder="Message" 
                                             onChange={handleInputChange}  
                                             value={form.message}/>
-                                <Label htmlFor="name">{message?.message}</Label>
+                                <Label $show={message?.message} htmlFor="name">{message?.message}</Label>
                                 
                                 <Button role="submit" 
                                         $theme={themeSettings}  
                                         $align='right' 
                                         $w='160px'
+                                        $mt='35px'
                                         disabled = {submitButton}>Send Message</Button>
                             </form>
                         </ContactForm>   

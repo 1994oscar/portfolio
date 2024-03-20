@@ -1,5 +1,6 @@
 import colors from "../../Colors";
 import styled from "styled-components";
+import {devices} from "../../devices.jsx";
 
 const images ={
     oval3: 'oval-3.svg',
@@ -14,7 +15,7 @@ const SkillsSection = styled.div`
    
     &::before{
         content: "";
-        background-image: url(../public/images/${props => props.$theme.lightMode ? images.oval3Black : images.oval3});
+        background-image: url(/public/images/${props => props.$theme.lightMode ? images.oval3Black : images.oval3});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -50,6 +51,18 @@ const Skill = styled.div`
 
     p{
         color: ${props => props.$theme.lightMode ? colors.black : colors.white};
+    }
+    
+    @media ${devices.max.md}{
+        width: 45%;
+    }
+    
+    @media ${devices.max.sm}{
+        width: 100%;
+
+        h2,p{
+            text-align: center;
+        }
     }
 `;
 

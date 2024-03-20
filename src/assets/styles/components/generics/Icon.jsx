@@ -10,5 +10,9 @@ export const Icon = styled.i`
 
     &:hover{
         cursor: pointer;
+        
+        svg{
+            fill: ${colors.primary};
+        }
     }
 `; 

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import colors from "../../Colors";
+import {Column} from "../../components/Grid.jsx";
+import {devices} from "../../devices.jsx";
 
 const images ={
     oval: 'oval.svg',
@@ -16,7 +18,7 @@ const ContactSection = styled.div`
 
     &::before{
         content: "";
-        background-image: url(../public/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2}); 
+        background-image: url(/public/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2}); 
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -27,6 +29,18 @@ const ContactSection = styled.div`
         top: 30rem;
         left: 0;
     }
+    
+    @media ${devices.max.sm}{
+        ${Column}{
+            width: 100%;
+        }   
+        
+        &::before{
+            left: -17rem;
+            top: unset;
+            bottom: 10rem;
+        }
+    }
 `;
 
 const ContactBox = styled.div`
@@ -34,6 +48,15 @@ const ContactBox = styled.div`
 
     h1{
         margin-bottom: 36px;
+    }
+    
+    @media ${devices.max.sm}{
+        h1,p{
+            text-align: center;
+        }
+        h1{
+            font-size: 6rem;
+        }
     }
 `;
 

@@ -1,6 +1,12 @@
 import Container from "../assets/styles/components/Container";
-import { Anchor } from "../assets/styles/components/Generics/Button";
-import { ProjectHeader, ProjectItem, ProjectsBox, ProjectsSection } from "../assets/styles/pages/home/ProjectsSection";
+import {Button} from "../assets/styles/components/Generics/Button";
+import {
+    HoverDetails,
+    ProjectHeader, ProjectImageBox,
+    ProjectItem,
+    ProjectsBox,
+    ProjectsSection
+} from "../assets/styles/pages/home/ProjectsSection";
 import { useGetThemeSettings } from "../hooks/useGetThemeSettings";
 
 export const Projects = () => {
@@ -39,17 +45,23 @@ export const Projects = () => {
             <Container>
                 <ProjectHeader $theme={themeSettings}>
                     <h1>Projects</h1>
-
-                    <Anchor $theme={themeSettings}>Contact Me</Anchor>
+                    <Button href='#!' as='a' $theme={themeSettings}>Contact Me</Button>
                 </ProjectHeader>
                 <ProjectsBox>
                     {
                         projects.map((project, index) => {
                             return (
                                 <ProjectItem key={index} $theme={themeSettings}>
-                                    <img src={project.image} alt="" />
-                                    <h3>{project.title}</h3>
+                                    <ProjectImageBox>
+                                        <img src={project.image} alt=""/>
 
+                                        <HoverDetails $theme={themeSettings}>
+                                            <Button as='a'>View Project</Button>
+                                            <Button as='a'>View Code</Button>
+                                        </HoverDetails>
+                                    </ProjectImageBox>
+
+                                    <h3>{project.title}</h3>
                                     {project.tags.map((tag, index) => {
                                         return (
                                             <span key={index}>{tag}</span>
