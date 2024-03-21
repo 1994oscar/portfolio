@@ -16,7 +16,7 @@ const Skills = () => {
     ];
 
     return (
-        <SkillsSection $theme = {themeSettings}>
+        <SkillsSection as='section' $theme = {themeSettings}>
             <Container>
                 <SkillsBox $theme = {themeSettings}>
                     {

@@ -176,7 +176,8 @@ const Contact = () => {
                                 <Input $theme={themeSettings} 
                                         $error={name?.status} 
                                         type="text" 
-                                        name="name" 
+                                        name="name"
+                                        id='name'
                                         placeholder="Name" 
                                         onChange={handleInputChange}  
                                         value={form.name}/>
@@ -185,22 +186,24 @@ const Contact = () => {
                                 <Input $theme={themeSettings} 
                                         $error={email?.status} 
                                         type="email" 
-                                        name="email" 
+                                        name="email"
+                                        id='email'
                                         placeholder="Email"  
                                         onChange={handleInputChange}  
                                         value={form.email}/>
-                                <Label $show={email?.message} htmlFor="name">{email?.message}</Label>
+                                <Label $show={email?.message} htmlFor="email">{email?.message}</Label>
                                 
                                 <TextArea as='textarea' 
                                             $theme={themeSettings} 
                                             $error={message?.status} 
-                                            name="message" 
+                                            name="message"
+                                            id='message'
                                             placeholder="Message" 
                                             onChange={handleInputChange}  
                                             value={form.message}/>
-                                <Label $show={message?.message} htmlFor="name">{message?.message}</Label>
+                                <Label $show={message?.message} htmlFor="message">{message?.message}</Label>
                                 
-                                <Button role="submit" 
+                                <Button type="submit"
                                         $theme={themeSettings}  
                                         $align='right' 
                                         $w='160px'

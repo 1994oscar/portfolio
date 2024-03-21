@@ -18,23 +18,23 @@ const Header = () => {
                         <NavigationBox>
                            <Logo><span>adamkeyes</span></Logo>
                            <SocialsBox>
-                                <a target='_blank' href="https://github.com/1994oscar/">
+                                <a target='_blank' href="https://github.com/1994oscar/" aria-label='Github link'>
                                     <Icon $theme = {themeSettings}>{icons.gitHub}</Icon>
                                 </a>
 
-                                <a  target='_blank' href="https://www.frontendmentor.io/profile/1994oscar">
+                                <a  target='_blank' href="https://www.frontendmentor.io/profile/1994oscar" aria-label='FrontenMentor link'>
                                     <Icon $theme = {themeSettings}>{icons.frontEndMentor}</Icon>
                                 </a>
 
-                                <a target='_blank' href="https://www.linkedin.com/in/oscar-zuniga-mora">
+                                <a target='_blank' href="https://www.linkedin.com/in/oscar-zuniga-mora" aria-label='Linkedin link'>
                                     <Icon $theme = {themeSettings}>{icons.linkedIn}</Icon>
                                 </a>
 
-                                <a href="#!">
+                                <a href="#!" aria-label='Twitter link'>
                                     <Icon $theme = {themeSettings}>{icons.twitter}</Icon>
                                 </a>
 
-                                <a role="button" onClick={() => changeThemeMode()}>   
+                                <a onClick={() => changeThemeMode()} aria-label='Darkmode button'>
                                     <Icon $theme = {themeSettings}>{themeSettings.lightMode ? icons.moon : icons.sun}</Icon>
                                 </a>
                            </SocialsBox>

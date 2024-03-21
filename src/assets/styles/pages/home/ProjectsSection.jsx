@@ -50,6 +50,7 @@ const ProjectItem = styled.div`
     span{
         color: ${props => props.$theme.lightMode ? colors.black : colors.white};
         margin-right: 1.8rem;
+        text-transform: uppercase;
     }
     
     @media ${devices.min.sm}{
