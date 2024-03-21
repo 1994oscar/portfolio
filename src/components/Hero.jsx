@@ -15,7 +15,7 @@ const Hero = () => {
 
     return ( 
         <>
-            <HeroSection as='main' $theme = {themeSettings}>
+            <HeroSection $theme = {themeSettings}>
                 <Container>
 
                     <HeroImageMobile>

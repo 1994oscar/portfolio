@@ -34,7 +34,7 @@ const Header = () => {
                                     <Icon $theme = {themeSettings}>{icons.twitter}</Icon>
                                 </a>
 
-                                <a onClick={() => changeThemeMode()} aria-label='Darkmode button'>
+                                <a onClick={() => changeThemeMode()}>
                                     <Icon $theme = {themeSettings}>{themeSettings.lightMode ? icons.moon : icons.sun}</Icon>
                                 </a>
                            </SocialsBox>
