@@ -18,15 +18,15 @@ const Header = () => {
                         <NavigationBox>
                            <Logo><span>adamkeyes</span></Logo>
                            <SocialsBox>
-                                <a href="#!">
+                                <a target='_blank' href="https://github.com/1994oscar/">
                                     <Icon $theme = {themeSettings}>{icons.gitHub}</Icon>
                                 </a>
 
-                                <a href="#!">
+                                <a  target='_blank' href="https://www.frontendmentor.io/profile/1994oscar">
                                     <Icon $theme = {themeSettings}>{icons.frontEndMentor}</Icon>
                                 </a>
 
-                                <a href="#!">
+                                <a target='_blank' href="https://www.linkedin.com/in/oscar-zuniga-mora">
                                     <Icon $theme = {themeSettings}>{icons.linkedIn}</Icon>
                                 </a>
 

@@ -35,7 +35,7 @@ const Hero = () => {
                         <Image $theme = {themeSettings}><img src={themeSettings.lightMode ? profileImages.white : profileImages.black} alt="" /></Image>  
                     </HeroImage>
 
-                    <Button as='a' href="#!" $theme = {themeSettings}>Contact Me</Button>
+                    <Button as='a' href="#contact" $theme = {themeSettings}>Contact Me</Button>
                 </Container>
             </HeroSection>   
         </>

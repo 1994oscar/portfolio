@@ -158,7 +158,7 @@ const Contact = () => {
     const {name, email, message} = validation.errors;
 
     return ( 
-    <ContactSection $theme={themeSettings}>
+    <ContactSection id='contact' $theme={themeSettings}>
         <Container>
             <Row>
                 <Column $size='48%'>

@@ -45,7 +45,7 @@ export const Projects = () => {
             <Container>
                 <ProjectHeader $theme={themeSettings}>
                     <h1>Projects</h1>
-                    <Button href='#!' as='a' $theme={themeSettings}>Contact Me</Button>
+                    <Button href='#contact' as='a' $theme={themeSettings}>Contact Me</Button>
                 </ProjectHeader>
                 <ProjectsBox>
                     {
