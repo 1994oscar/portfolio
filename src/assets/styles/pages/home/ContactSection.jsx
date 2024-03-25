@@ -18,7 +18,7 @@ const ContactSection = styled.div`
 
     &::before{
         content: "";
-        background-image: url(/public/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2}); 
+        background-image: url(/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2}); 
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;

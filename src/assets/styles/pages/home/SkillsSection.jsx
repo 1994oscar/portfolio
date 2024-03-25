@@ -15,7 +15,7 @@ const SkillsSection = styled.div`
    
     &::before{
         content: "";
-        background-image: url(/public/images/${props => props.$theme.lightMode ? images.oval3Black : images.oval3});
+        background-image: url(/images/${props => props.$theme.lightMode ? images.oval3Black : images.oval3});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;

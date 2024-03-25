@@ -37,7 +37,7 @@ const Hero = () => {
 
                     <Button as='a' href="#contact" $theme = {themeSettings}>Contact Me</Button>
                 </Container>
-            </HeroSection>   
+            </HeroSection>
         </>
     );
 }

@@ -52,7 +52,7 @@ const HeroContent = styled.div`
 
     &::before{
         content: "";
-        background-image: url(/public/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2});
+        background-image: url(/images/${props => props.$theme.lightMode ? images.oval2Black : images.oval2});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -138,7 +138,7 @@ const Image = styled.div`
         width: 129px;
         height: 129px;
         position: absolute;
-        background-image: url(/public/images/${props => props.$theme.lightMode ? images.ovalBlack : images.oval});
+        background-image: url(/images/${props => props.$theme.lightMode ? images.ovalBlack : images.oval});
         bottom: 10rem;
         left: 0;
         transform: translate(-50%, 0);
