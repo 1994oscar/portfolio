@@ -197,7 +197,7 @@ Error generating stack: `+i.message+`
 
     &::before{
         content: "";
-        background-image: url(/public/images/${e=>e.$theme.lightMode?ti.oval2Black:ti.oval2});
+        background-image: url(/images/${e=>e.$theme.lightMode?ti.oval2Black:ti.oval2});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -277,7 +277,7 @@ Error generating stack: `+i.message+`
         width: 129px;
         height: 129px;
         position: absolute;
-        background-image: url(/public/images/${e=>e.$theme.lightMode?ti.ovalBlack:ti.oval});
+        background-image: url(/images/${e=>e.$theme.lightMode?ti.ovalBlack:ti.oval});
         bottom: 10rem;
         left: 0;
         transform: translate(-50%, 0);
@@ -326,7 +326,7 @@ Error generating stack: `+i.message+`
    
     &::before{
         content: "";
-        background-image: url(/public/images/${e=>e.$theme.lightMode?za.oval3Black:za.oval3});
+        background-image: url(/images/${e=>e.$theme.lightMode?za.oval3Black:za.oval3});
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -524,7 +524,7 @@ Error generating stack: `+i.message+`
 
     &::before{
         content: "";
-        background-image: url(/public/images/${e=>e.$theme.lightMode?Ta.oval2Black:Ta.oval2}); 
+        background-image: url(/images/${e=>e.$theme.lightMode?Ta.oval2Black:Ta.oval2}); 
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
